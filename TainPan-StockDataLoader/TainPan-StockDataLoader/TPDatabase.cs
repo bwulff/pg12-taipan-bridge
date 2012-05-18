@@ -53,16 +53,16 @@ namespace TainPan_StockDataLoader
             return erg;
         }
 
-        public Wertpapier[] titelSuchen(String suchBegriff, int wpArt, int börse)
+        public Wertpapier[] titelSuchen(String suchBegriff, int wpArt, Handelsplatz börse)
         {
-            ISuchListe zwergs = (ISuchListe)tpdb.Suchen(
+            ISuchListe zwergs = (ISuchListe)tpdb.Suchen( 
                 TPRSuchKriterien.TPRSucheWertpapiername,
-                suchBegriff, (ushort)börse, (ushort)wpArt);
+                suchBegriff, (ushort)börse.tpID, (ushort)wpArt);
             Wertpapier[] ergs = new Wertpapier[zwergs.Count];
             int i = 0;
             foreach (IStammInfo info in zwergs)
             {
-                ergs[i++] = new Wertpapier(info.Name, info.SymbolNr);
+                ergs[i++] = new Wertpapier(info.Name, info.SymbolNr, börse);
             }
             return ergs;
         }
@@ -70,7 +70,7 @@ namespace TainPan_StockDataLoader
         public TagesDaten holeTagesDaten(Wertpapier wp, DateTime tag)
         {
             IIntradayChart erg = tpdb.IntradayChart(wp.tpID, 1, tag);
-            return new TagesDaten(erg);
+            return new TagesDaten(wp, erg);
         }
     }
 
@@ -86,7 +86,7 @@ namespace TainPan_StockDataLoader
         }
     }
 
-    class Handelsplatz
+    public class Handelsplatz
     {
         public int tpID;
         public String name;
@@ -102,40 +102,97 @@ namespace TainPan_StockDataLoader
     {
         public readonly String name;
         public readonly int tpID;
+        public Handelsplatz handelsplatz;
 
-        public Wertpapier(String name, int taiPanNummer)
+        public Wertpapier(String name, int taiPanNummer, Handelsplatz handelsplatz)
         {
             this.name = name;
             this.tpID = taiPanNummer;
+            this.handelsplatz = handelsplatz;
         }
 
         public String toString()
         {
-            return name;
+            return name + " (" + handelsplatz.name + ")";
         }
     }
 
     public class TagesDaten
     {
-        public readonly long Count;
-        public DateTime[] zeit;
-        public float[] kurs;
-        public float[] volumen;
-       
-        public TagesDaten(IIntradayChart daten)
-        {
-            this.Count = daten.Count;
-            zeit = new DateTime[daten.Count];
-            kurs = new float[daten.Count];
-            volumen = new float[daten.Count];
+        public readonly Wertpapier titel;
+        public readonly int Count;
+        private IIntradayChart data;
+        private int i;
 
-            for (int i = 1; i <= daten.Count; i++)
+        public TagesDaten(Wertpapier titel, IIntradayChart data)
+        {
+            this.titel = titel;
+            this.data = data;
+            this.Count = data.Count;
+            reset();
+        }
+
+        public void reset()
+        {
+            i = 1;
+        }
+
+        public bool hasNext()
+        {
+            return i <= Count;
+        }
+
+        public Datensatz next()
+        {
+            IIntradayChartEintrag eintrag = (IIntradayChartEintrag)data[i++];
+            return new Datensatz(titel, eintrag.Zeit, eintrag.Kurs, eintrag.Volume);
+        }
+    }
+
+    public class Datensatz
+    {
+        public readonly Wertpapier titel;
+        public DateTime timestamp;
+        public float kurs, volumen;
+
+        public Datensatz(Wertpapier titel, DateTime ts, float kurs, float volumen)
+        {
+            this.titel = titel;
+            this.timestamp = ts;
+            this.kurs = kurs;
+            this.volumen = volumen;
+        }
+
+        private String zweistellig(int i) {
+            if (i < 10)
             {
-                IIntradayChartEintrag eintrag = daten[i];
-                zeit[i - 1] = eintrag.Zeit;
-                kurs[i - 1] = eintrag.Kurs;
-                volumen[i - 1] = eintrag.Volume;
+                return "0" + i.ToString();
             }
+            else
+            {
+                return i.ToString();
+            }
+        }
+
+        public String getAmiDatum()
+        {
+            return timestamp.Year + "-" 
+                + zweistellig(timestamp.Month) + "-" 
+                + zweistellig(timestamp.Day) + " " 
+                + zweistellig(timestamp.Hour) + ":" 
+                + zweistellig(timestamp.Minute) + ":" 
+                + zweistellig(timestamp.Second);
+        }
+    }
+
+    // TODO Implement ISO6166 functionality
+    public class ISIN
+    {
+        String id;
+
+        public ISIN(String id)
+        {
+            this.id = id;
         }
     }
 }

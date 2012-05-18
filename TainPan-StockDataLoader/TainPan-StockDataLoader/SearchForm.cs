@@ -28,7 +28,7 @@ namespace TainPan_StockDataLoader
             {
                 handelsplatzSelect.Items.Insert(i, börsen[i].name);
             }
-            handelsplatzSelect.SelectedIndex = 11;
+            handelsplatzSelect.SelectedIndex = 6;
             
             // Wertpapierarten laden
             wpArten = Program.db.ladeWertpapierArten();
@@ -41,13 +41,17 @@ namespace TainPan_StockDataLoader
 
         private void suchenButton_Click(object sender, EventArgs e)
         {
-            aktuelleSuche = Program.db.titelSuchen(
-                sucheText.Text, wpArten[wpArtSelect.SelectedIndex].tpID, 
-                börsen[handelsplatzSelect.SelectedIndex].tpID);
-            ergList.Items.Clear();
-            foreach (Wertpapier wp in aktuelleSuche)
+            String st = sucheText.Text.Trim();
+            if (st.Length > 0)
             {
-                ergList.Items.Add(wp.toString());
+                aktuelleSuche = Program.db.titelSuchen(
+                    sucheText.Text, wpArten[wpArtSelect.SelectedIndex].tpID,
+                    börsen[handelsplatzSelect.SelectedIndex]);
+                ergList.Items.Clear();
+                foreach (Wertpapier wp in aktuelleSuche)
+                {
+                    ergList.Items.Add(wp.name);
+                }
             }
         }
 

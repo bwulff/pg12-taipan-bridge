@@ -8,6 +8,8 @@ namespace TainPan_StockDataLoader
     static class Program
     {
         public static TPDatabase db;
+        public static Hypertable ht = null;
+        public static MainForm mainForm;
 
         /// <summary>
         /// Der Haupteinstiegspunkt für die Anwendung.
@@ -21,7 +23,16 @@ namespace TainPan_StockDataLoader
             // init GUI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            mainForm = new MainForm();
+            Application.Run(mainForm);
+        }
+
+        public static void ensureHypertable()
+        {
+            if (ht == null)
+            {
+                ht = new Hypertable(mainForm.getDbUri(), mainForm.getDbNamespace());
+            }
         }
     }
 }

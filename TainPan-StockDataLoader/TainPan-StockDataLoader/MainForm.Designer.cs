@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
             this.suchenButton = new System.Windows.Forms.Button();
             this.bisDatum = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,18 +39,25 @@
             this.label1 = new System.Windows.Forms.Label();
             this.vonDatum = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.checkDatenSchreiben = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textDbTable = new System.Windows.Forms.TextBox();
+            this.textDbNamespace = new System.Windows.Forms.TextBox();
+            this.textDbHostname = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.logText = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.checkDSAuszugAnzeigen = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.numericUpDown1);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.suchenButton);
             this.groupBox1.Controls.Add(this.bisDatum);
             this.groupBox1.Controls.Add(this.label3);
@@ -58,10 +67,26 @@
             this.groupBox1.Controls.Add(this.vonDatum);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(343, 120);
+            this.groupBox1.Size = new System.Drawing.Size(343, 135);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datensatz";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(98, 106);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(154, 20);
+            this.numericUpDown1.TabIndex = 8;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 108);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(86, 13);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Auflösung (sek.):";
             // 
             // suchenButton
             // 
@@ -123,30 +148,62 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.checkDatenSchreiben);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.textDbTable);
+            this.groupBox2.Controls.Add(this.textDbNamespace);
+            this.groupBox2.Controls.Add(this.textDbHostname);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(361, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(384, 120);
+            this.groupBox2.Size = new System.Drawing.Size(384, 135);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datenbank";
             // 
-            // textBox4
+            // checkDatenSchreiben
             // 
-            this.textBox4.Location = new System.Drawing.Point(79, 57);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(299, 20);
-            this.textBox4.TabIndex = 3;
+            this.checkDatenSchreiben.AutoSize = true;
+            this.checkDatenSchreiben.Location = new System.Drawing.Point(79, 109);
+            this.checkDatenSchreiben.Name = "checkDatenSchreiben";
+            this.checkDatenSchreiben.Size = new System.Drawing.Size(104, 17);
+            this.checkDatenSchreiben.TabIndex = 6;
+            this.checkDatenSchreiben.Text = "Daten schreiben";
+            this.checkDatenSchreiben.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // label6
             // 
-            this.textBox3.Location = new System.Drawing.Point(79, 28);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(299, 20);
-            this.textBox3.TabIndex = 2;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(28, 86);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Tabelle:";
+            // 
+            // textDbTable
+            // 
+            this.textDbTable.Location = new System.Drawing.Point(79, 83);
+            this.textDbTable.Name = "textDbTable";
+            this.textDbTable.Size = new System.Drawing.Size(299, 20);
+            this.textDbTable.TabIndex = 4;
+            this.textDbTable.Text = "QuotesBySymbol";
+            // 
+            // textDbNamespace
+            // 
+            this.textDbNamespace.Location = new System.Drawing.Point(79, 57);
+            this.textDbNamespace.Name = "textDbNamespace";
+            this.textDbNamespace.Size = new System.Drawing.Size(299, 20);
+            this.textDbNamespace.TabIndex = 3;
+            this.textDbNamespace.Text = "bridgetest";
+            // 
+            // textDbHostname
+            // 
+            this.textDbHostname.Location = new System.Drawing.Point(79, 28);
+            this.textDbHostname.Name = "textDbHostname";
+            this.textDbHostname.Size = new System.Drawing.Size(299, 20);
+            this.textDbHostname.TabIndex = 2;
+            this.textDbHostname.Text = "diplom09.informatik.uni-osnabrueck.de";
             // 
             // label5
             // 
@@ -168,11 +225,11 @@
             // 
             // logText
             // 
-            this.logText.Location = new System.Drawing.Point(12, 138);
+            this.logText.Location = new System.Drawing.Point(12, 166);
             this.logText.Multiline = true;
             this.logText.Name = "logText";
             this.logText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.logText.Size = new System.Drawing.Size(733, 337);
+            this.logText.Size = new System.Drawing.Size(733, 309);
             this.logText.TabIndex = 2;
             // 
             // button1
@@ -185,11 +242,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // checkDSAuszugAnzeigen
+            // 
+            this.checkDSAuszugAnzeigen.AutoSize = true;
+            this.checkDSAuszugAnzeigen.Location = new System.Drawing.Point(12, 485);
+            this.checkDSAuszugAnzeigen.Name = "checkDSAuszugAnzeigen";
+            this.checkDSAuszugAnzeigen.Size = new System.Drawing.Size(154, 17);
+            this.checkDSAuszugAnzeigen.TabIndex = 7;
+            this.checkDSAuszugAnzeigen.Text = "Datensatzauszug anzeigen";
+            this.checkDSAuszugAnzeigen.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(757, 516);
+            this.Controls.Add(this.checkDSAuszugAnzeigen);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.logText);
             this.Controls.Add(this.groupBox2);
@@ -197,8 +265,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.Text = "TaiPan-Import";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -219,10 +289,16 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker vonDatum;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textDbNamespace;
+        private System.Windows.Forms.TextBox textDbHostname;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox checkDSAuszugAnzeigen;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textDbTable;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox checkDatenSchreiben;
 
     }
 }
