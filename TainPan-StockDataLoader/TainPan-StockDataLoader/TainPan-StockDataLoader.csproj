@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Candlestick.cs" />
+    <Compile Include="Util.cs" />
     <Compile Include="Hypertable.cs" />
     <Compile Include="TPDatabase.cs" />
     <Compile Include="MainForm.cs">

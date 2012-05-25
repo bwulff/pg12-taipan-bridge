@@ -162,27 +162,6 @@ namespace TainPan_StockDataLoader
             this.kurs = kurs;
             this.volumen = volumen;
         }
-
-        private String zweistellig(int i) {
-            if (i < 10)
-            {
-                return "0" + i.ToString();
-            }
-            else
-            {
-                return i.ToString();
-            }
-        }
-
-        public String getAmiDatum()
-        {
-            return timestamp.Year + "-" 
-                + zweistellig(timestamp.Month) + "-" 
-                + zweistellig(timestamp.Day) + " " 
-                + zweistellig(timestamp.Hour) + ":" 
-                + zweistellig(timestamp.Minute) + ":" 
-                + zweistellig(timestamp.Second);
-        }
     }
 
     // TODO Implement ISO6166 functionality

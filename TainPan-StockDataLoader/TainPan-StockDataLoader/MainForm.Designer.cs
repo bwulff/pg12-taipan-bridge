@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.feldAufloesung = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.suchenButton = new System.Windows.Forms.Button();
             this.bisDatum = new System.Windows.Forms.DateTimePicker();
@@ -50,13 +51,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.checkDSAuszugAnzeigen = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.feldAufloesung)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.numericUpDown1);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.feldAufloesung);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.suchenButton);
             this.groupBox1.Controls.Add(this.bisDatum);
@@ -72,21 +74,40 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datensatz";
             // 
-            // numericUpDown1
+            // label8
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(98, 106);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(154, 20);
-            this.numericUpDown1.TabIndex = 8;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(196, 108);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(56, 13);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Sekunden";
+            // 
+            // feldAufloesung
+            // 
+            this.feldAufloesung.Location = new System.Drawing.Point(69, 106);
+            this.feldAufloesung.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.feldAufloesung.Name = "feldAufloesung";
+            this.feldAufloesung.Size = new System.Drawing.Size(121, 20);
+            this.feldAufloesung.TabIndex = 8;
+            this.feldAufloesung.Value = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(6, 108);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(86, 13);
+            this.label7.Size = new System.Drawing.Size(57, 13);
             this.label7.TabIndex = 7;
-            this.label7.Text = "Auflösung (sek.):";
+            this.label7.Text = "Auflösung:";
             // 
             // suchenButton
             // 
@@ -268,7 +289,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.feldAufloesung)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -296,9 +317,10 @@
         private System.Windows.Forms.CheckBox checkDSAuszugAnzeigen;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textDbTable;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown feldAufloesung;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox checkDatenSchreiben;
+        private System.Windows.Forms.Label label8;
 
     }
 }
