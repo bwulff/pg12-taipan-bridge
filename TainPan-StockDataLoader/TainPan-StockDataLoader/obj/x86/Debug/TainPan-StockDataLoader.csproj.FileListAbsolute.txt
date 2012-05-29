@@ -1,0 +1,17 @@
+C:\Users\datamining12\Desktop\code\pg12-taipan-bridge\TainPan-StockDataLoader\TainPan-StockDataLoader\obj\x86\Debug\Interop.TaiPanRTLib.dll
+C:\Users\datamining12\Desktop\code\pg12-taipan-bridge\TainPan-StockDataLoader\TainPan-StockDataLoader\obj\x86\Debug\TainPan-StockDataLoader.csproj.ResolveComReference.cache
+C:\Users\datamining12\Desktop\code\pg12-taipan-bridge\TainPan-StockDataLoader\TainPan-StockDataLoader\bin\Debug\TainPan-StockDataLoader.exe
+C:\Users\datamining12\Desktop\code\pg12-taipan-bridge\TainPan-StockDataLoader\TainPan-StockDataLoader\bin\Debug\TainPan-StockDataLoader.pdb
+C:\Users\datamining12\Desktop\code\pg12-taipan-bridge\TainPan-StockDataLoader\TainPan-StockDataLoader\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\datamining12\Desktop\code\pg12-taipan-bridge\TainPan-StockDataLoader\TainPan-StockDataLoader\obj\x86\Debug\TainPan_StockDataLoader.MainForm.resources
+C:\Users\datamining12\Desktop\code\pg12-taipan-bridge\TainPan-StockDataLoader\TainPan-StockDataLoader\obj\x86\Debug\TainPan_StockDataLoader.SearchForm.resources
+C:\Users\datamining12\Desktop\code\pg12-taipan-bridge\TainPan-StockDataLoader\TainPan-StockDataLoader\obj\x86\Debug\TainPan_StockDataLoader.Properties.Resources.resources
+C:\Users\datamining12\Desktop\code\pg12-taipan-bridge\TainPan-StockDataLoader\TainPan-StockDataLoader\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\datamining12\Desktop\code\pg12-taipan-bridge\TainPan-StockDataLoader\TainPan-StockDataLoader\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\datamining12\Desktop\code\pg12-taipan-bridge\TainPan-StockDataLoader\TainPan-StockDataLoader\obj\x86\Debug\TainPan-StockDataLoader.exe
+C:\Users\datamining12\Desktop\code\pg12-taipan-bridge\TainPan-StockDataLoader\TainPan-StockDataLoader\obj\x86\Debug\TainPan-StockDataLoader.pdb
+C:\Users\datamining12\Desktop\code\pg12-taipan-bridge\TainPan-StockDataLoader\TainPan-StockDataLoader\bin\Debug\ht4n.dll
+C:\Users\datamining12\Desktop\code\pg12-taipan-bridge\TainPan-StockDataLoader\TainPan-StockDataLoader\bin\Debug\ht4n.pdb
+C:\Users\datamining12\Desktop\code\pg12-taipan-bridge\TainPan-StockDataLoader\TainPan-StockDataLoader\bin\Debug\ht4n.xml
+C:\Users\datamining12\Desktop\code\pg12-taipan-bridge\TainPan-StockDataLoader\TainPan-StockDataLoader\obj\x86\Debug\Interop.AccessibilityCplAdminLib.dll
+C:\Users\datamining12\Desktop\code\pg12-taipan-bridge\TainPan-StockDataLoader\TainPan-StockDataLoader\obj\x86\Debug\Interop.TPRLaufband.dll
